@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
         <head>
           <title>STUDENT DETAILS</title>
@@ -18,7 +19,7 @@
           <form class="form-inline" action="javascript:add();">
             <div class="form-group" >
               <label  for="name" id="a">NAME :</label>
-              <input type="text" class="form-control" placeholder="NAME" id="name" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Please enter string only atleast 3 characters" required>
+              <input type="text" class="form-control" placeholder="NAME" id="name" pattern="[a-zA-Z ]+[a-zA-Z]$" title="Enter string only atleast 2 characters" required>
             </div>
             <div class="form-group">
               <label for="rno">ROLL NUMBER : </label>
@@ -26,7 +27,7 @@
             </div>
             <div class="form-group">
               <label for="branch" id="b">BRANCH : </label>
-              <input type="text"  class="form-control" placeholder="BRANCH" id="branch"  pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Please enter string only atleast 3 characters" required>
+              <input type="text"  class="form-control" placeholder="BRANCH" id="branch"  pattern="[a-zA-Z \.]+[a-zA-Z]$" title="Enter string only atleast 2 characters" required>
             </div>
             <div class="form-group">
               <label for="year">YEAR : </label>
@@ -96,4 +97,4 @@
             <button type="button" class="btn btn-danger" onclick="multidelete()" ><span class="glyphicon glyphicon-trash"></span> DELETE</button>
           </div>
         </body>
-</html
+</html>

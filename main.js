@@ -83,6 +83,7 @@ const display=()=>{
         button.setAttribute("onclick", "delete1(this)");
         button.appendChild(img);
         cell[7].appendChild(button);
+        
         }
     
 }
@@ -104,14 +105,14 @@ const edit=(element)=>{
        if(a%2==0)
        {
            input[a].type=`number`;
+           input[a].title="Please enter numbers only";
        }
        else
        {
            input[a].type=`text`;
-           input[a].setAttribute("pattern","[a-zA-Z][a-zA-Z ]+[a-zA-Z]$");
            input[a].title="Please enter alphabets only";
        }
-       input[a].setAttribute("required",true);
+       
    }
    input[1].id="1";
    input[2].id="2";
@@ -149,54 +150,67 @@ function check(){
     
     if(document.getElementById("1").value&&document.getElementById("2").value&&document.getElementById("3").value&&document.getElementById("4").value)
     {
-    return true;
+        return true;
     }
     else
-    return false;
+        return false;
 }
 
 const save=(element,callback)=>{
     if(callback())
     {
-    let i= element.parentNode.parentNode.rowIndex;
-    let table=document.getElementById("table");
-    let cell=table.rows[i].cells;
-    let a,name1=" ",b1=" ",yr1=" ",rno1=" ";
-    if(document.getElementById("1").value)
-    name1=document.getElementById("1").value;
-    if(document.getElementById("2").value)
-    rno1=document.getElementById("2").value;
-    if(document.getElementById("3").value)
-    b1=document.getElementById("3").value;
-    if(document.getElementById("4").value)
-    yr1=document.getElementById("4").value;
-    
-    for(a=1;a<5;a++)
-   {
-       cell[a].removeChild(cell[a].childNodes[0]);
-   }
+        let letterNumber ="[a-zA-Z ]+[a-zA-Z]$";
+        let bpattern="[a-zA-Z \.]+[a-zA-Z]$"
+        let i= element.parentNode.parentNode.rowIndex;
+        let table=document.getElementById("table");
+        let cell=table.rows[i].cells;
+        let a,name1=" ",b1=" ",yr1=" ",rno1=" ";
+        if(document.getElementById("1").value)
+        name1=document.getElementById("1").value;
+        if(document.getElementById("2").value)
+        rno1=document.getElementById("2").value;
+        if(document.getElementById("3").value)
+        b1=document.getElementById("3").value;
+        if(document.getElementById("4").value)
+        yr1=document.getElementById("4").value;
+        if((name1.match(letterNumber))&&b1.match(bpattern))
+        {
 
-    names[i-1]=name1;
-    rno[i-1]=rno1;
-    branch[i-1]=b1;
-    yr[i-1]=yr1;
+            for(a=1;a<5;a++)
+            {
+                cell[a].removeChild(cell[a].childNodes[0]);
+            }
+        
+            names[i-1]=name1;
+            rno[i-1]=rno1;
+            branch[i-1]=b1;
+            yr[i-1]=yr1;
+            
+            cell[1].innerHTML=name1;
+            cell[2].innerHTML=rno1;
+            cell[3].innerHTML=b1;
+            cell[4].innerHTML=yr1;
 
-    cell[1].innerHTML=name1;
-    cell[2].innerHTML=rno1;
-    cell[3].innerHTML=b1;
-    cell[4].innerHTML=yr1;
+            let img = document.createElement("img");
+            img.setAttribute("src","edit.jpg");
+            img.setAttribute("width","16");
+            img.setAttribute("height","16");
 
+            let button=document.createElement("button");
+            button.setAttribute("onclick","edit(this)");
+            button.id="edit";
+            button.appendChild(img); 
+            cell[6].replaceChild(button,cell[6].childNodes[0]);
+        }
+        else if(!(name1.match(letterNumber)))
+        {
+            alert(`ENTER A VALID NAME CONTAINING ATLEAST 2 CHARACTERS`);
+        }
+        else if(!(b1.match(bpattern)))
+        {
+            alert(`ENTER A VALID BRANCH CONTAINING ATLEAST 2 CHARACTERS`);
+        }
 
-    let img = document.createElement("img");
-    img.setAttribute("src","edit.jpg");
-    img.setAttribute("width","16");
-    img.setAttribute("height","16");
-
-    let button=document.createElement("button");
-    button.setAttribute("onclick","edit(this)");
-    button.id="edit";
-    button.appendChild(img); 
-    cell[6].replaceChild(button,cell[6].childNodes[0]);
     }
 
     else
@@ -210,15 +224,15 @@ const delete1=(...element)=> {
     let result = confirm(`ARE YOU SURE YOU WANT TO DELETE THE SELECTED ROW ?`);
     if (result) 
     {
-    let i = element[0].parentNode.parentNode.rowIndex;
-    let cell = document.getElementById("table").rows[i].cells;
-    cell = cell[2].innerHTML;
-    let index = rno.indexOf(cell);
-    document.getElementById("table").deleteRow(i);
-    names.splice(index,1);
-    rno.splice(index,1);
-    branch.splice(index, 1);
-    yr.splice(index, 1);
+        let i = element[0].parentNode.parentNode.rowIndex;
+        let cell = document.getElementById("table").rows[i].cells;
+        cell = cell[2].innerHTML;
+        let index = rno.indexOf(cell);
+        document.getElementById("table").deleteRow(i);
+        names.splice(index,1);
+        rno.splice(index,1);
+        branch.splice(index, 1);
+        yr.splice(index, 1);
 
     }
 }

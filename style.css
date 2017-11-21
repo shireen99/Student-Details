@@ -1,0 +1,35 @@
+body
+{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+#a,#b
+{
+    margin-left: 10px;
+}
+#name
+{
+    margin-right: 50px;
+}
+#rno
+{
+    margin-right: 50px;
+}
+#year
+{
+    margin-right: 50px;
+}
+#branch
+{
+    margin-right: 50px;
+}
+tr:nth-child(odd)
+{
+    background-color: white;
+}
+tr:nth-child(even)
+{
+    background-color: #daf7f0;
+}

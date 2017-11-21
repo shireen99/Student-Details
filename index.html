@@ -1,0 +1,99 @@
+<html>
+        <head>
+          <title>STUDENT DETAILS</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script src="main.js"></script>
+          <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+        <body>
+          <div class="jumbotron text-center">
+            <h1>STUDENT DETAILS</h1>
+          </div>
+          <br>
+          <br>
+          <form class="form-inline" action="javascript:add();">
+            <div class="form-group" >
+              <label  for="name" id="a">NAME :</label>
+              <input type="text" class="form-control" placeholder="NAME" id="name" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Please enter string only atleast 3 characters" required>
+            </div>
+            <div class="form-group">
+              <label for="rno">ROLL NUMBER : </label>
+              <input type="text" class="form-control" pattern="[0-9]{3}" title="Three digit roll number" placeholder="ROLL NUMBER" id="rno"  required>
+            </div>
+            <div class="form-group">
+              <label for="branch" id="b">BRANCH : </label>
+              <input type="text"  class="form-control" placeholder="BRANCH" id="branch"  pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Please enter string only atleast 3 characters" required>
+            </div>
+            <div class="form-group">
+              <label for="year">YEAR : </label>
+              <input type="text" class="form-control" pattern="[0-9]{4}" title="Four digit year" placeholder="YEAR" id="year" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="add"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+          </form>
+          <div>
+            <table class="table table-hover" id="table">
+              <thead>
+                <tr>
+                  <th>S.NO.</th>
+                  <th>NAME</th>
+                  <th>ROLL NUMBER</th>
+                  <th>BRANCH</th>
+                  <th>YEAR</th>
+                  <th>SELECT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>EMMA GREEN</td>
+                  <td>512</td>
+                  <td>CSE</td>
+                  <td>2015</td>
+                  <td><input type="checkbox" class="chk"></td>
+                  <td><button type="submit" onclick="edit(this)"><img src="edit.jpg" alt="EDIT" width="15" height="15"></button></td>
+                  <td><button type="submit" onclick="delete1(this)"><img src="delete.png" alt="DELETE" width="15" height="15"></button></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>STEFFAN WILSON</td>
+                  <td>513</td>
+                  <td>ECE</td>
+                  <td>2015</td>
+                  <td><input type="checkbox" class="chk"></td>
+                  <td><button type="submit" onclick="edit(this)"><img src="edit.jpg" alt="EDIT" width="15" height="15"></button></td>
+                  <td><button type="submit" onclick="delete1(this)"><img src="delete.png" alt="DELETE" width="15" height="15"></button></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>HAZEL GRACE</td>
+                  <td>514</td>
+                  <td>CSE</td>
+                  <td>2015</td>
+                  <td><input type="checkbox" class="chk"></td>
+                  <td><button type="submit" onclick="edit(this)"><img src="edit.jpg" alt="EDIT" width="15" height="15"></button></td>
+                  <td><button type="submit" onclick="delete1(this)"><img src="delete.png" alt="DELETE" width="15" height="15"></button></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>ETHAN ANDERSON</td>
+                  <td>515</td>
+                  <td>ECE</td>
+                  <td>2015</td>
+                  <td><input type="checkbox" class="chk"></td>
+                  <td><button type="submit" onclick="edit(this)"><img src="edit.jpg" alt="EDIT" width="15" height="15"></button></td>
+                  <td><button type="submit" onclick="delete1(this)"><img src="delete.png" alt="DELETE" width="15" height="15"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center">   
+            <button type="button" class="btn btn-danger" onclick="multidelete()" ><span class="glyphicon glyphicon-trash"></span> DELETE</button>
+          </div>
+        </body>
+</html
